@@ -1,0 +1,59 @@
+<!--**********************************************************************
+Name: VehicleList(lwc)
+
+Purpose: Component to show vehicle list.
+
+History
+VERSION AUTHOR    					DATE 		DETAIL
+1.0    	Pedro William			    24/01/2022  Component creation.
+***********************************************************************-->
+<template>
+    <lightning-card title="Vehicles" icon-name="custom:custom31">
+        <div class="slds-p-horizontal_small">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" aria-label="Vehicles with vertical borders">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Model">Model</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Type">Type</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Air Conditioner">Air Conditioner</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Recommended Passengers">Recommended Passengers</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each = {Vehicles.data} for:item="Vehicle">
+                        <tr class="slds-hint-parent" key = {Vehicle.Name}>
+                            <th data-label="Name" scope="row">
+                                <div class="slds-truncate" title={Vehicle.Name}>
+                                    <a href={Vehicle.Link__c} tabindex="-1">{Vehicle.Name}</a>
+                                </div>
+                            </th>
+                            <td data-label="Model">
+                                <div class="slds-truncate" title={Vehicle.Model__c}>{Vehicle.Model__c}</div>
+                            </td>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title={Vehicle.Type__c}>{Vehicle.Type__c}</div>
+                            </td>
+                            <td data-label="Air Conditioner">
+                                <div class="slds-truncate" title={Vehicle.Air_Conditioner__c}>{Vehicle.Air_Conditioner__c}</div>
+                            </td>
+                            <td data-label="Recommended Passengers">
+                                <div class="slds-truncate" title={Vehicle.Recommended_Passengers__c}>{Vehicle.Recommended_Passengers__c}</div>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>
